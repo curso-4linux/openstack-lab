@@ -51,10 +51,10 @@ gcloud compute instances create openstack-file-storage --zone us-central1-b --im
 
 ### 12 - Cria e para a instância openstack-object-storage1 com 2 vCPUs, 8 GB de memória e 2 discos adicionais de 80GB cada 
 gcloud compute instances create openstack-object-storage1 --zone us-central1-b --image=openstack-image-base --machine-type=e2-standard-2 --boot-disk-size=50GB \
- --disk=name=openstack-object-storage1-disk2 --disk=name=openstack-object-storage1-disk2 --private-network-ip=10.128.0.35 \
+ --disk=name=openstack-object-storage1-disk2 --disk=name=openstack-object-storage1-disk3 --private-network-ip=10.128.0.35 \
  --metadata=startup-script=cat\ \<\<\ EOF\ \>\>\ /etc/hosts$'\n'controller\ 10.128.0.30$'\n'compute1\ 10.128.0.31$'\n'compute2\ 10.128.0.32$'\n'block\ 10.128.0.33$'\n'file\ 10.128.0.34$'\n'object1\ 10.128.0.35$'\n'object2\ 10.128.0.36$'\n'EOF$'\n'apt\ update$'\n'apt\ dist-upgrade$'\n'apt\ install\ bridge-utils\ debootstrap\ openssh-server\ tcpdump\ vlan\ python3\ -y
 
 ### 13 - Cria e para a instância openstack-object-storage2 com 2 vCPUs, 8 GB de memória  e 2 discos adicionais de 80GB cada 
 gcloud compute instances create openstack-object-storage2 --zone us-central1-b --image=openstack-image-base --machine-type=e2-standard-2 --boot-disk-size=50GB \
- --disk=name=openstack-object-storage2-disk2 --disk=name=openstack-object-storage2-disk2 --private-network-ip=10.128.0.36 \
+ --disk=name=openstack-object-storage2-disk2 --disk=name=openstack-object-storage2-disk3 --private-network-ip=10.128.0.36 \
  --metadata=startup-script=cat\ \<\<\ EOF\ \>\>\ /etc/hosts$'\n'controller\ 10.128.0.30$'\n'compute1\ 10.128.0.31$'\n'compute2\ 10.128.0.32$'\n'block\ 10.128.0.33$'\n'file\ 10.128.0.34$'\n'object1\ 10.128.0.35$'\n'object2\ 10.128.0.36$'\n'EOF$'\n'apt\ update$'\n'apt\ dist-upgrade$'\n'apt\ install\ bridge-utils\ debootstrap\ openssh-server\ tcpdump\ vlan\ python3\ -y
