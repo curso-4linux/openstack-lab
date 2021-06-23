@@ -25,15 +25,18 @@ gcloud compute disks create block1-disk2 block1-disk3 \
 
 ### 07 - Cria a instância controller com 4 vCPUs e 15 GB de memória e ip estático 
 IP_CONTROLLER=$(gcloud compute addresses list --filter="name= ( 'controller' )" | awk -F" " '{print $2}' | tail -1)
-gcloud compute instances create controller --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB --private-network-ip=10.128.0.30 --address $IP_CONTROLLER
+gcloud compute instances create controller --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB \
+--network-interface subnet=default,private-network-ip=10.128.0.30,address=$IP_CONTROLLER --network-interface subnet=provider-subnet,private-network-ip=10.0.0.30,no-address
 
 ### 08 - Cria a instância compute1 com 4 vCPUs e 15 GB de memória e ip estático 
 IP_COMPUTE1=$(gcloud compute addresses list --filter="name= ( 'compute1' )" | awk -F" " '{print $2}' | tail -1)
-gcloud compute instances create compute1 --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB --private-network-ip=10.128.0.31 --address $IP_COMPUTE1
+gcloud compute instances create compute1 --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB \
+--network-interface subnet=default,private-network-ip=10.128.0.31,address=$IP_COMPUTE1 --network-interface subnet=provider-subnet,private-network-ip=10.0.0.31,no-address
 
 ### 09 - Cria a instância compute2 com 4 vCPUs e 15 GB de memória e ip estático 
 IP_COMPUTE2=$(gcloud compute addresses list --filter="name= ( 'compute2' )" | awk -F" " '{print $2}' | tail -1)
-gcloud compute instances create compute2 --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB --private-network-ip=10.128.0.32 --address $IP_COMPUTE2
+gcloud compute instances create compute2 --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB \
+--network-interface subnet=default,private-network-ip=10.128.0.32,address=$IP_COMPUTE2 --network-interface subnet=provider-subnet,private-network-ip=10.0.0.32,no-address
 
 ### 10 - Cria a instância block1 com 2 vCPUs, 8 GB de memória, ip estático e 2 discos adicionais de 80GB cada  
 gcloud compute instances create block1 --zone us-central1-b --image=openstack-image-base --machine-type=e2-standard-2 --boot-disk-size=50GB --disk=name=block1-disk2 --disk=name=block1-disk3 --private-network-ip=10.128.0.33
