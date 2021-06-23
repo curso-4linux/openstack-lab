@@ -36,7 +36,7 @@ IP_COMPUTE2=$(gcloud compute addresses list --filter="name= ( 'compute2' )" | aw
 gcloud compute instances create compute2 --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-4 --boot-disk-size=100GB --private-network-ip=10.128.0.32 --address $IP_COMPUTE2
 
 ### 10 - Cria a instância block1 com 2 vCPUs, 8 GB de memória, ip estático e 2 discos adicionais de 80GB cada  
-gcloud compute instances create block1 --zone us-central1-b --image=openstack-image-base --machine-type=e2-standard-2 --boot-disk-size=50GB --disk=name=openstack-block1-disk2 --disk=name=block1-disk3 --private-network-ip=10.128.0.33
+gcloud compute instances create block1 --zone us-central1-b --image=openstack-image-base --machine-type=e2-standard-2 --boot-disk-size=50GB --disk=name=block1-disk2 --disk=name=block1-disk3 --private-network-ip=10.128.0.33
 
 ### 11 - Cria a instância file com 2 vCPUs, 7.5 GB de memóriae ip estático  
 gcloud compute instances create file --zone us-central1-b --image=openstack-image-base --machine-type=n1-standard-2 --boot-disk-size=50GB --private-network-ip=10.128.0.34
