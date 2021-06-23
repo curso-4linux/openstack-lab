@@ -17,7 +17,7 @@ gcloud compute instances delete openstack-vm-temp --zone=us-central1-b --quiet
 ### 05 - Reserva endereços estáticos para as instâncias controller, compute1 e compute2
 gcloud compute addresses create controller compute1 compute2 --region=us-central1 --quiet
 
-### 06 - Cria discos adicionais para as instâncias block1, object1 e openstack-object-storage2
+### 06 - Cria discos adicionais para as instâncias block1, object1 e object2
 gcloud compute disks create block1-disk2 block1-disk3 \
  object1-disk2 object1-disk3 \
  object2-disk2 object2-disk3 \
