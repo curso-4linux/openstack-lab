@@ -18,7 +18,7 @@ OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = "Default"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "user"
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_router': True,
-    'enable_quotas': False,
+    'enable_quotas': True,
     'enable_ipv6': False,
     'enable_distributed_router': False,
     'enable_ha_router': False,
