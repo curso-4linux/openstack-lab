@@ -1,7 +1,7 @@
 #!/bin/bash
 
-### 01 - Cria a instância openstack-vm-temp com Ubuntu 20.04 LTS
-gcloud compute instances create openstack-vm-temp --image-family=projects/ubuntu-os-cloud/global/images/family/ubuntu-2004-lts --zone=us-central1-b --boot-disk-size=50GB --quiet
+### 01 - Cria a instância openstack-vm-temp com Ubuntu 18.04 LTS
+gcloud compute instances create openstack-vm-temp --image-family=projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts --zone=us-central1-b --boot-disk-size=50GB --quiet
 
 ### 02 - Para a instância openstack-vm-temp
 gcloud compute instances stop openstack-vm-temp  --zone=us-central1-b --quiet
